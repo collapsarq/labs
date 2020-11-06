@@ -1,0 +1,38 @@
+// Ввести строку и букву, вывести только слова, заканчивающиеся на заданную букву.
+
+#include <stdio.h>
+
+int main()
+{
+    char a[100];
+    int j = 0, space1 = 0, space2 = 0;
+    char target[1];
+
+    printf("Input srting: ");
+    while ((a[j] = getchar()) != '\n')
+    {
+        j++;
+    }
+    a[j] = ' ';
+
+    printf("Input target letter: ");
+    target[0] = getchar();
+
+    for (j = 0; a[j + 1] != '\0'; j++)
+    {
+        if (a[j] == ' ' || a[j] == '\0')
+        {
+            space1 = j;
+        }
+
+        if (a[j] == target[0] && a[j + 1] == ' ')
+        {
+            space2 = j + 1;
+            for (space1; space1 != space2; space1++)
+            {
+                printf("%c", a[space1]);
+            }
+            printf(" ");
+        }
+    }
+}
